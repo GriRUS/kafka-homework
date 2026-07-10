@@ -1,0 +1,4 @@
+runtime/
+*.log
+*.pid
+cluster.id
