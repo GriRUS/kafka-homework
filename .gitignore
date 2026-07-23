@@ -23,7 +23,7 @@
 hs_err_pid*
 replay_pid*
 
-# Local Kafka homework runtime
+# Local Kafka homework runtime files
 /.downloads/
 /.local/
 /.runtime/
