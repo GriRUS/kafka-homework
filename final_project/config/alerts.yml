@@ -1,0 +1,35 @@
+groups:
+  - name: kafka
+    rules:
+      - alert: KafkaBrokerUnavailable
+        expr: up{job="kafka-brokers"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Kafka broker {{ $labels.instance }} is unavailable"
+
+      - alert: KafkaUnderReplicatedPartitions
+        expr: sum(kafka_server_replicamanager_underreplicatedpartitions) > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Kafka has under-replicated partitions"
+
+      - alert: KafkaConsumerLagHigh
+        expr: sum by (consumergroup) (kafka_consumergroup_lag) > 50
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Consumer group {{ $labels.consumergroup }} has high lag"
+
+      - alert: KafkaExporterUnavailable
+        expr: up{job="kafka-exporter"} == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Kafka Exporter is unavailable"
+
