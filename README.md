@@ -4,6 +4,10 @@
 
 Защищённый кластер Kafka из трёх KRaft-брокеров с SASL/SSL, ACL и мониторингом Prometheus/Grafana находится в каталоге [`final_project`](final_project/README.md).
 
+## Домашние работы
+
+- [ДЗ 5: Kafka Connect и Debezium PostgreSQL CDC](hw_5/README.md)
+
 В проекте используется Apache Kafka 3.9.2 и локальный Temurin JDK 17. Они лежат
 в игнорируемом Git каталоге `.local`, поэтому системная Java и Homebrew не нужны.
 
